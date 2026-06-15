@@ -16,16 +16,11 @@ public class Drone {
     public String getStatus()                  { return status; }
     public void   setStatus(String s)          { this.status = s; }
 
-    public void consumeBattery(double distanceKm) {
-        batteryLevel = Math.max(0, batteryLevel - distanceKm);
-    }
+    public void consumeBattery(double distanceKm) { batteryLevel = Math.max(0, batteryLevel - distanceKm); }
 
     @Override
     public String toString() {
-        return "Drone " + droneId +
-                " | Battery: " + String.format("%.1f", batteryLevel) + "%" +
-                " | Location: " + currentLocation +
-                " | Capacity: " + payloadCapacity + "kg" +
-                " | Status: " + status;
+        return "Drone " + droneId + " | Battery: " + String.format("%.1f", batteryLevel) + "%" +
+                " | Location: " + currentLocation + " | Capacity: " + payloadCapacity + "kg | Status: " + status;
     }
 }

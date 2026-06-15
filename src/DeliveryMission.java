@@ -9,8 +9,7 @@ public class DeliveryMission {
     public DeliveryMission(int missionId, String source, String destination, double packageWeight, int priorityLevel) {
         this.missionId = missionId; this.source = source; this.destination = destination;
         this.packageWeight = packageWeight; this.priorityLevel = priorityLevel;
-        this.status = "PENDING"; this.assignedDroneId = null;
-        this.route = new ArrayList<>(); this.totalDistance = 0;
+        this.status = "PENDING"; this.route = new ArrayList<>(); this.totalDistance = 0;
     }
 
     public int    getMissionId()                 { return missionId; }
@@ -35,12 +34,9 @@ public class DeliveryMission {
 
     @Override
     public String toString() {
-        return "Mission M" + missionId +
-                " | " + source + " -> " + destination +
-                " | Weight: " + packageWeight + "kg" +
-                " | Priority: " + getPriorityText() +
-                " | Status: " + status +
-                " | Drone: " + (assignedDroneId == null ? "Not Assigned" : assignedDroneId) +
-                " | Distance: " + totalDistance + "km";
+        return "M" + missionId + " | " + source + " -> " + destination +
+                " | " + packageWeight + "kg | " + getPriorityText() + " | " + status +
+                " | Drone: " + (assignedDroneId == null ? "None" : assignedDroneId) +
+                " | " + totalDistance + "km";
     }
 }

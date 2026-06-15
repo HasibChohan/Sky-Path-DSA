@@ -18,11 +18,9 @@ public class DijkstraAlgorithm {
         HashMap<String, Double> dist = new HashMap<>();
         HashMap<String, String> prev = new HashMap<>();
         PriorityQueue<NodeDistance> pq = new PriorityQueue<>();
-
         for (String wp : graph.getAllWaypoints()) dist.put(wp, Double.MAX_VALUE);
         dist.put(source, 0.0);
         pq.add(new NodeDistance(source, 0.0));
-
         while (!pq.isEmpty()) {
             NodeDistance cur = pq.poll();
             if (blockedNodes != null && blockedNodes.contains(cur.node) && !cur.node.equals(source)) continue;
@@ -37,7 +35,6 @@ public class DijkstraAlgorithm {
                 }
             }
         }
-
         List<String> path = new ArrayList<>();
         if (!destination.equals(source) && !prev.containsKey(destination)) return new Result(path, -1);
         String step = destination;
